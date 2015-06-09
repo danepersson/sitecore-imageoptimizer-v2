@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageOptimizerV2", "ImageOptimizerV2\ImageOptimizerV2.csproj", "{C90CF9BE-1ADC-45CC-9975-19AB31A8EEE1}"
+EndProject
+Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "ImageOptimizerV2.Core", "ImageOptimizerV2.Core\ImageOptimizerV2.Core.scproj", "{D4040319-8719-41C9-A631-D36FAF7129AC}"
+EndProject
+Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "ImageOptimizerV2.Master", "ImageOptimizerV2.Master\ImageOptimizerV2.Master.scproj", "{FA07328E-5ABD-4FAC-9AE8-D7E899B342EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C90CF9BE-1ADC-45CC-9975-19AB31A8EEE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C90CF9BE-1ADC-45CC-9975-19AB31A8EEE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C90CF9BE-1ADC-45CC-9975-19AB31A8EEE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C90CF9BE-1ADC-45CC-9975-19AB31A8EEE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4040319-8719-41C9-A631-D36FAF7129AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4040319-8719-41C9-A631-D36FAF7129AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4040319-8719-41C9-A631-D36FAF7129AC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D4040319-8719-41C9-A631-D36FAF7129AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4040319-8719-41C9-A631-D36FAF7129AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4040319-8719-41C9-A631-D36FAF7129AC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{FA07328E-5ABD-4FAC-9AE8-D7E899B342EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA07328E-5ABD-4FAC-9AE8-D7E899B342EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA07328E-5ABD-4FAC-9AE8-D7E899B342EC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FA07328E-5ABD-4FAC-9AE8-D7E899B342EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA07328E-5ABD-4FAC-9AE8-D7E899B342EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA07328E-5ABD-4FAC-9AE8-D7E899B342EC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

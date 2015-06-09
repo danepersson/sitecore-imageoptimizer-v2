@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<control xmlns:def="Definition" xmlns="http://schemas.sitecore.net/Visual-Studio-Intellisense">
+  <OptimizeFolderDialog>
+    <WizardForm CodeBeside="ImageOptimizerV2.ImageOptimizer.Dialogs.OptimizeImageDialog, ImageOptimizerV2">
+      <Script Src="/sitecore/shell/Controls/Lib/jQuery/jQuery.noconflict.js"></Script>
+
+      <WizardFormFirstPage ID="FirstPage" Icon="Custom/32x32/Publish.png">
+        <Border Class="scWizardWelcomeTitle">
+          <Literal ID="Welcome" Text="Welcome to the image optimizer wizard."/>
+        </Border>
+        <Literal Text="This wizard helps you:"/>
+        <ul>
+          <li class="scWizardBullet">
+            <Literal Text="Choose the optimization mode"/>
+          </li>
+          <li class="scWizardBullet">
+            <Literal Text="The items to optimize"/>
+          </li>
+        </ul>
+      </WizardFormFirstPage>
+
+      <WizardFormPage ID="Settings" Header="Settings" Text="Select the optimization settings. Click Optimize to optimize." Icon="Software/32x32/compress2_red.png">
+        <WizardFormPadding>
+          <Scrollbox ID="SettingsPane" Border="none" Background="transparent">
+            <Groupbox ID="FoldersPanel" Header="Folders" Margin="0px 0px 16px 0px">
+              <Border Padding="4">
+                <Border ID="ThisFolderPane">
+                  <Radiobutton ID="ThisFolderOnly" Name="FolderMode" Header="This folder only without the sub folders." Value="ThisFolderOnly"/>
+                  <br/>
+                </Border>
+                <Border ID="SubFoldersPane">
+                  <Radiobutton ID="SubFolders" Name="FolderMode" Header="This folder and the subfolders." Value="SubFolders" Checked="true"/>
+                </Border>
+              </Border>
+
+              <Border>
+                <Checkbox ID="ForceOptimize" Header="Force the optimization even if already optimized"/>
+              </Border>
+            </Groupbox>
+          </Scrollbox>
+        </WizardFormPadding>
+      </WizardFormPage>
+
+      <WizardFormPage ID="Optimizing" Header="Optimizing" Text="Please wait while optimization..." Icon="Software/32x32/compress2_red.png">
+        <GridPanel Width="100%">
+          <Border Height="64"/>
+
+          <ThemedImage Src="Software/48x48/compress2_red.png" Width="48" Height="48" GridPanel.Align="center"/>
+
+          <Space Height="16"/>
+
+          <Border Align="center">
+            <ThemedImage Src="Images/progress.gif" Width="94" Height="17"/>
+          </Border>
+
+          <Space Height="16"/>
+
+          <Border ID="OptimizingText" Align="center" GridPanel.Align="center" GridPanel.Style="font-weight:bold">
+            <Literal Text="Optimizing..."/>
+          </Border>
+          <Space Height="16"/>
+          <Border ID="OptimizingTarget" Align="center" GridPanel.Align="center">
+            &#160;
+          </Border>
+        </GridPanel>
+      </WizardFormPage>
+
+      <WizardFormPage ID="Retry" Header="An error occurred" Text="An error occurred while optimizing." Icon="Software/32x32/compress2_red.png">
+        <WizardFormPadding>
+          <Memo ID="ErrorText" ReadOnly="true" Width="100%" Height="100%"/>
+        </WizardFormPadding>
+      </WizardFormPage>
+
+      <WizardFormLastPage ID="LastPage" Icon="Software/32x32/compress2_red.png">
+        <div class="scStretch scFlexColumnContainerWithoutFlexie">
+          <Literal class="wizardCompleteText" Text="The wizard has completed. Click Finish to close the wizard."/>
+          <div style="padding:0px 0px 2px 0px">
+            <Literal ID="Status"/>
+          </div>
+          <Border ID="ShowResultPane" style="padding:8px 0px 2px 0px" Click="ShowResult" RollOver="true" Class="scRollOver">
+            <Literal Text="Click here to view additional information."/>
+          </Border>
+          <Border ID="ResultLabel" style="padding:8px 0px 2px 0px" Visible="false">
+            <Literal Text="Result:"/>
+          </Border>
+          <div class="scFlexContentWithoutFlexie scWizardLastPageResultText">
+            <div class="scStretchAbsolute">
+              <Memo ID="ResultText" class="scStretch" ReadOnly="true" Visible="false"/>
+            </div>
+          </div>
+        </div>
+      </WizardFormLastPage>
+
+    </WizardForm>
+  </OptimizeFolderDialog>
+</control>

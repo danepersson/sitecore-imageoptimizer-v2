@@ -1,0 +1,100 @@
+----item----
+version: 1
+id: {08907CF7-3C99-44BC-AE5B-71270D4CB624}
+database: master
+path: /sitecore/templates/System/Media/Media folder/__Standard Values
+parent: {FE5DD826-48C6-436D-B87A-7C4210C7413B}
+name: __Standard Values
+master: {00000000-0000-0000-0000-000000000000}
+template: {FE5DD826-48C6-436D-B87A-7C4210C7413B}
+templatekey: Media folder
+
+----field----
+field: {A0CB3965-8884-4C7A-8815-B6B2E5CED162}
+name: __Editors
+key: __editors
+content-length: 38
+
+{C4AAC4DF-6D8E-4D6D-9A25-D97E398ACAD1}
+----field----
+field: {C7C26117-DBB1-42B2-AB5E-F7223845CCA3}
+name: __Thumbnail
+key: __thumbnail
+content-length: 169
+
+<image mediaid="{7992E405-A9BA-49E0-8C87-C88060756731}" mediapath="/System/Template Thumbnails/leopard-folder-big" src="~/media/7992E405A9BA49E08C87C88060756731.ashx" />
+----field----
+field: {1172F251-DAD4-4EFB-A329-0C63500E4F1E}
+name: __Masters
+key: __masters
+content-length: 77
+
+{0FBEBDBC-55B4-4883-90DF-29906DB4EB47}|{FE5DD826-48C6-436D-B87A-7C4210C7413B}
+----field----
+field: {F2DB8BA1-E477-41F5-8EF5-22EEFA8D2F6E}
+name: __Enabled Views
+key: __enabled views
+content-length: 77
+
+{F50CD144-013F-4AD8-90BD-F01816E40CCC}|{4ADCA61B-10A6-4AAA-94FD-72DB877813D0}
+----field----
+field: {3607F9C7-DDA3-43C3-9720-39A7A5B3A4C3}
+name: __Default View
+key: __default view
+content-length: 0
+
+
+----field----
+field: {C0E276BB-8807-40AA-8138-E5C38B0C5DAB}
+name: __Quick Actions
+key: __quick actions
+content-length: 116
+
+{2B3E7BD2-B46D-4B64-86E4-3D42FA4F8EAA}|{9400691E-6518-4073-BB0D-409BFCED1558}|{4ECDC734-42BF-4CC3-849F-8BAC2B8F310D}
+----version----
+language: en
+version: 1
+revision: 63007c9b-6fd1-41e4-95ac-727e08ca2ee4
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 15
+
+20061127T093900
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\Admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+63007c9b-6fd1-41e4-95ac-727e08ca2ee4
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 34
+
+20121114T182637:634885143979145001
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin
