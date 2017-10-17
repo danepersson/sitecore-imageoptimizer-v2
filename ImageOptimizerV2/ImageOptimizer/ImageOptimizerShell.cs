@@ -91,7 +91,7 @@ namespace ImageOptimizerV2.ImageOptimizer
         {
 
             MagickImage image = new MagickImage(new FileInfo(src));
-            image.Quality = 85;
+            image.Quality = this.JpgCompressionQuality;
             image.ColorSpace = ColorSpace.RGB;
             image.Interlace = Interlace.Jpeg;
             image.Strip();
@@ -221,6 +221,16 @@ namespace ImageOptimizerV2.ImageOptimizer
             {
                 bool result = false;
                 Boolean.TryParse(Settings.GetSetting("imageOptimizer.jpgUseCommand", "false"), out result);
+                return result;
+            }
+        }
+
+        protected int JpgCompressionQuality
+        {
+            get
+            {
+                int result = 85;
+                Int32.TryParse(Settings.GetSetting("imageOptimizer.jpgCompressionQuality", "85"), out result);
                 return result;
             }
         }
