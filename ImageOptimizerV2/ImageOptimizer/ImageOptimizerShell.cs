@@ -8,6 +8,7 @@ using Sitecore.SecurityModel;
 using System;
 using System.Diagnostics;
 using System.IO;
+using ImageMagick;
 
 namespace ImageOptimizerV2.ImageOptimizer
 {
@@ -82,6 +83,39 @@ namespace ImageOptimizerV2.ImageOptimizer
                 Sitecore.Diagnostics.Log.Error(string.Format("Error compressing image: {0} {1}", cmd, str), exception,
                     this);
             }
+            
+
+        }
+
+        protected virtual void OptimizeJpg(string src, string dst)
+        {
+
+            MagickImage image = new MagickImage(new FileInfo(src));
+            image.Quality = 85;
+            image.ColorSpace = ColorSpace.RGB;
+            image.Interlace = Interlace.Jpeg;
+            image.Strip();
+
+            image.Write(dst, new JpegWriteDefines()
+            {
+                SamplingFactors = new MagickGeometry[]
+               {
+                  new MagickGeometry ("2x2"),
+                  new MagickGeometry ("1x1"),
+                  new MagickGeometry ("1x1")
+               }
+            });
+        }
+
+        protected virtual void OptimizePng(string src, string dst)
+        {
+            FileInfo sourceFile = new FileInfo(src);
+
+            MagickImage image = new MagickImage(new FileInfo(src));
+            image.Strip();
+
+            image.Write(dst);
+
         }
 
         public void Optimize(MediaItem item)
@@ -109,12 +143,18 @@ namespace ImageOptimizerV2.ImageOptimizer
                             {
                                 dst = Regex.Replace(src, @"(.*)\.png$", "$1-or8.png");
 
-                                this.Execute(this.PngCommand, this.PngOptions, src, dst);
+                                if (PngUseCommand)
+                                    this.Execute(this.PngCommand, this.PngOptions, src, dst);
+                                else
+                                    OptimizePng(src, dst);
                             }
                             else if ((item.MimeType == "image/jpg") || (item.MimeType == "image/jpeg"))
                             {
                                 dst = Regex.Replace(src, @"(.*)\.(jpg|jpeg)$", "$1-out.$2");
-                                this.Execute(this.JpgCommand, this.JpgOptions, src, dst);
+                                if (this.JpgUseCommand)
+                                    this.Execute(this.JpgCommand, this.JpgOptions, src, dst);
+                                else
+                                    OptimizeJpg(src, dst);
                             }
                             FileInfo info = new FileInfo(src);
                             FileInfo info2 = new FileInfo(dst);
@@ -175,6 +215,16 @@ namespace ImageOptimizerV2.ImageOptimizer
             }
         }
 
+        protected bool JpgUseCommand
+        {
+            get
+            {
+                bool result = false;
+                Boolean.TryParse(Settings.GetSetting("imageOptimizer.jpgUseCommand", "false"), out result);
+                return result;
+            }
+        }
+
         protected string JpgCommand
         {
             get
@@ -191,6 +241,16 @@ namespace ImageOptimizerV2.ImageOptimizer
                 return
                     Settings.GetSetting("imageOptimizer.jpgOptions", "-copy none -progressive -optimize {0} {1}")
                         .Split(new char[] {' '});
+            }
+        }
+
+        protected bool PngUseCommand
+        {
+            get
+            {
+                bool result = false;
+                Boolean.TryParse(Settings.GetSetting("imageOptimizer.pngUseCommand", "false"), out result);
+                return result;
             }
         }
 
