@@ -90,6 +90,10 @@ namespace ImageOptimizerV2.ImageOptimizer
         protected virtual void OptimizeJpg(string src, string dst)
         {
 
+            string tempFolder = Sitecore.IO.FileUtil.MapPath(Sitecore.Configuration.Settings.TempFolderPath);
+            MagickAnyCPU.CacheDirectory = tempFolder;
+            MagickNET.SetTempDirectory(tempFolder);
+
             MagickImage image = new MagickImage(new FileInfo(src));
             image.Quality = this.JpgCompressionQuality;
             image.ColorSpace = ColorSpace.RGB;
@@ -109,6 +113,10 @@ namespace ImageOptimizerV2.ImageOptimizer
 
         protected virtual void OptimizePng(string src, string dst)
         {
+            string tempFolder = Sitecore.IO.FileUtil.MapPath(Sitecore.Configuration.Settings.TempFolderPath);
+            MagickAnyCPU.CacheDirectory = tempFolder;
+            MagickNET.SetTempDirectory(tempFolder);
+
             FileInfo sourceFile = new FileInfo(src);
 
             MagickImage image = new MagickImage(new FileInfo(src));
